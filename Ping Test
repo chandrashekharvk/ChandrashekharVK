@@ -1,0 +1,14 @@
+import os
+results_file = open("ping_result.txt","w")
+url_list = []
+for url in open("websites.txt"):
+    url_list.append(url)
+
+for url in url_list:
+    response = os.popen(f"ping {url} -n 1").read()
+    if "Received = 1" and "Approximate" in response:
+        results_file.write(f"UP {url} Ping Pass" + "\n")
+    else:
+        results_file.write(f"Down {url} Ping Fail" + "\n")
+        
+        
