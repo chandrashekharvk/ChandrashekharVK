@@ -1,7 +1,8 @@
 import pandas as pd
-df = pd.read_excel('members.xlsx')\
+df = pd.read_excel('members.xlsx')
 
 #First Filter
+head = ['first_name','email','gender','ip_address']
 email_list = []
 for a in range(0,len(df.index)):
     b=df.loc[a,head[1]]
@@ -10,7 +11,6 @@ for a in range(0,len(df.index)):
 print(email_list)
 
 #Second Filter
-head = ['first_name','email','gender','ip_address']
 vowel_list=['a','e','i','o','u']
 name_list=[]
 for x in range(0,len(df.index)):
