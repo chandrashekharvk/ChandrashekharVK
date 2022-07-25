@@ -1,0 +1,26 @@
+import pandas as pd
+df = pd.read_excel('members.xlsx')\
+
+#First Filter
+email_list = []
+for a in range(0,len(df.index)):
+    b=df.loc[a,head[1]]
+    if b.index('@') >=5:
+       email_list.append(df.loc[a,head[1]])
+print(email_list)
+
+#Second Filter
+head = ['first_name','email','gender','ip_address']
+vowel_list=['a','e','i','o','u']
+name_list=[]
+for x in range(0,len(df.index)):
+    y=df.loc[x,head[0]].lower()
+    print(y)
+    if vowel_list.count(y[0])==1:
+       name_list.append(df.loc[x,head[0]])
+print(name_list)
+
+#Third filter
+filt = (df['gender']=='Male')|(df['gender']=='Female')
+print(df[filt])
+
